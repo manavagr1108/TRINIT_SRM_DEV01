@@ -1,37 +1,30 @@
 // add items
 function addItem() {
-    let type = document.getElementById("type").value;
+  let elementType = document.getElementById("elementType").value;
+  let elementValue = document.getElementById("value").value;
+  if (elementValue.length > 0) {
+    var id = "id" + Math.random().toString(16).slice(2);
+    elementType = document.createElement(elementType);
 
-    let value = document.getElementById("value").value;
+    elementType.classList.add("styleType");
+    elementType.setAttribute("id", id);
 
-    var typeName1 = type;
-    var typeName = type + " header";
-    console.log(typeName);
-    type = document.createElement(type);
+    elementType.appendChild(document.createTextNode(elementValue));
+    let color = document.getElementById("color").value;
+    document.getElementById("userbody").appendChild(elementType).style.color =
+      color;
 
-    type.classList.add("styleType");
-    type.setAttribute("id",typeName1);
-
-    dragTag = document.createElement("div");
-    dragTag.classList.add("styleHeader");
-    dragTag.setAttribute("id",typeName);
-    dragTag.appendChild(document.createTextNode("Click here to move"));
-    type.appendChild(dragTag);
-
-    type.appendChild(document.createTextNode(value));
-
-    
-    document.getElementById("parent").appendChild(type);
-    
-    dragElement(document.getElementById(typeName1));
+    dragElement(document.getElementById(id));
+  }
 }
-
 
 //make object dragable
 // Make the DIV element draggable:
-dragElement(document.getElementById("mydiv"));
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  var pos1 = 0,
+    pos2 = 0,
+    pos3 = 0,
+    pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
     // if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
@@ -58,12 +51,42 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
   }
   function closeDragElement() {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+var image = (document.getElementById("imageupload").style.display = "none");
+var img;
+
+function imageUpload() {
+  let type = document.getElementById("elementType").value;
+  console.log(type);
+  var image = document.getElementById("imageupload");
+  if (type == "img") {
+    image.style.display = "block";
+  } else {
+    image.style.display = "none";
+  }
+}
+
+function loadimage(e) {
+  var id = "id" + Math.random().toString(16).slice(2);
+  elementType = document.createElement("img");
+  elementType.src = URL.createObjectURL(e.target.files[0]);
+  let height= document.getElementById("height").value;
+  let width= document.getElementById("width").value;
+  elementType.width = width;
+  elementType.width = height;
+
+  elementType.classList.add("styleType");
+  elementType.setAttribute("id", id);
+
+  document.getElementById("userbody").appendChild(elementType);
+  dragElement(document.getElementById(id));
 }
