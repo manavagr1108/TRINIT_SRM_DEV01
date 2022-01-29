@@ -1,5 +1,3 @@
-// add items
-
 function addItem() {
   let elementType = document.getElementById("elementType").value;
   let elementValue = document.getElementById("value").value;
@@ -215,29 +213,6 @@ function loadimage(e) {
   document.getElementById("userbody").appendChild(elementType);
   dragElement(document.getElementById(id));
 }
-function loadCard(e) {
-  console.log(e);
-  var id = "id" + Math.random().toString(16).slice(2);
-  // const data = URL.createObjectURL(e.target.files[0]);
-  // console.log(data);
-  console.log("data");
-  const ele = "amav"
-  const card = `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">${ele}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>`
-  elementType = document.createElement("div");
-  elementType.classList.add("styleType");
-  elementType.setAttribute("id", id);
-  elementType.insertAdjacentHTML("beforeend", card);
-  document.getElementById("userbody").appendChild(elementType);
-  dragElement(document.getElementById(id));
-}
-
 
 document.getElementById("userbody").addEventListener("dblclick", (event) => {
   let deleteElemId= event.srcElement.id;
