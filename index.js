@@ -1,18 +1,16 @@
 function addItem() {
-    let type = document.
-        getElementById("type").value;
+  let elementType = document.getElementById("elementType").value;
+console.log(elementType)
+  let elementValue = document.getElementById("value").value;
 
-    let value = document.
-        getElementById("value").value;
+  elementType = document.createElement(elementType);
+  console.log(elementType)
+  let color = document.getElementById("color").value;
 
-    let color = document.
-        getElementById("color").value;
 
-    type=document.createElement(type);
+  elementType.appendChild(document.createTextNode(elementValue));
 
-    type.appendChild(
-        document.createTextNode(value));
+  //   document.getElementById("parent").appendChild(elementType);
 
-    document.getElementById(
-        "userbody").appendChild(type).style.color=color
+  document.getElementById("userbody").appendChild(elementType).style.color = color;
 }
