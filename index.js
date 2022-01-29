@@ -90,3 +90,9 @@ function loadimage(e) {
   document.getElementById("userbody").appendChild(elementType);
   dragElement(document.getElementById(id));
 }
+
+document.addEventListener("dblclick", (event) => {
+  let deleteElemId= event.srcElement.id;
+  let deleteElem= document.getElementById(deleteElemId);
+  deleteElem.remove();
+});
