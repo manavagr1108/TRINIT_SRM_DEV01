@@ -5,15 +5,14 @@ function addItem() {
     let value = document.
         getElementById("value").value;
 
-        let color = document.
+    let color = document.
         getElementById("color").value;
 
-    type
-        = document.createElement(type);
+    type=document.createElement(type);
 
     type.appendChild(
         document.createTextNode(value));
 
     document.getElementById(
-        "parent").appendChild(type).style.color=color
+        "userbody").appendChild(type).style.color=color
 }
