@@ -11,41 +11,49 @@
 </head>
 
 <body>
-
-	<div style="display: flex; flex-direction: row-reverse;">
-		<form id="form" action=# enctype="multipart/form-data"
-			style="background-color: black; color: white; padding: 50px;">
-			<h3 class="Title">Create your Own website</h3>
-			<p style="text-align: left; font-size: small;">Double click on elements to remove them.</p>
-			<div class="mb-3">
-				<label for="type" class="form-label">Element Type</label>
-				<select id="elementType" onchange="imageUpload()">
-					<option value="p">Paragraph</option>
-					<option value="h1">H1</option>
-					<option value="h2">H2</option>
-					<option value="h3">H3</option>
-					<option value="h4">H4</option>
-					<option value="h5">H5</option>
-					<option value="h6">H6</option>
-					<option value="button">Button</option>
-					<option value="ol">Ordered List</option>
-					<option value="ul">Unordered List</option>
-					<option value="span">Span</option>
-					<option value="img">Image</option>
-					<option value="card">Cards</option>
-					<option value="textarea">Text Area</option>
-					<option value="navbar">Nav Bar</option>
-					<option value="footer">Footer</option>
-				</select>
-			</div>
-			<div class="mb-3" id="basicTags">
-				<label for="value" class="form-label">Element Text</label>
-				<input type="text" id="value" class="form-control" placeholder="Enter the value of the element" />
-				<label for="color">Background Color</label>
-				<input type="color" id="Bgcolor" value="#FFFFFF">
-				<label for="color">Text Color</label>
-				<input type="color" id="color" value="#000000">
-			</div>
+	
+<div style="display: flex; flex-direction: row-reverse;">
+	<form id="form" action=# enctype="multipart/form-data" style="background-color: black; color: white; padding: 50px;">
+		<h3 class="Title">Create your Own website</h3>
+		<p style="text-align: left; font-size: small;">Double click on elements to remove them.</p>
+		<div class="mb-3">
+		  <label for="type" class="form-label">Element Type</label>
+		  <select id="elementType" onchange="imageUpload()">
+			<option value="p">Paragraph</option>
+			<option value="h1">H1</option>
+			<option value="h2">H2</option>
+			<option value="h3">H3</option>
+			<option value="h4">H4</option>
+			<option value="h5">H5</option>
+			<option value="h6">H6</option>
+			<option value="button">Button</option>
+			<option value="ol">Ordered List</option>
+			<option value="ul">Unordered List</option>
+			<option value="span">Span</option>
+			<option value="img">Image</option>
+			<option value="card">Cards</option>
+			<option value="textarea">Text Area</option>
+			<option value="navbar">Nav Bar</option>
+			<option value="footer">Footer</option>
+		</select>
+		</div>
+		<div class="mb-3" id="basicTags">
+		  <label for="value" class="form-label">Element Text</label>
+		  <input type="text" id="value" class="form-control" placeholder="Enter the value of the element" />
+		  <label for="fontsize">Font Size</label>
+		  <input type="fontsize" id="fontsize" value="14px"><br>
+		  <label for="fontStyle">Font Style</label>
+		  <select type="fontStyle" id="fontStyle">
+			  <option value="normal">Normal</option>
+			  <option value="italic">Italic</option>
+			  <option value="bold">Bold</option>
+			  <option value="oblique">Oblique</option>
+		  </select>
+		  <label for="color">Background Color</label>
+		  <input type="color" id="Bgcolor" value="#FFFFFF"><br>
+		  <label for="color">Text Color</label>
+		  <input type="color" id="color" value="#000000"><br>
+		</div>
 
 			<div class="mb-3 form-check" id="imageupload">
 				<label for="image">Image Height</label>
