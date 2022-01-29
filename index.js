@@ -225,5 +225,5 @@ document.getElementById("userbody").addEventListener("click", (event) => {
   var fontSize = cssObject.fontSize;
   var fontColor = cssObject.color;
   var backgroundColor=cssObject.backgroundColor;
-  
+  console.log(fontStyle + fontSize +fontColor+backgroundColor);
 });
