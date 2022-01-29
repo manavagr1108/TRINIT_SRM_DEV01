@@ -10,11 +10,11 @@
 </head>
 
 <body>
-	<h2 style="text-align: center;">Create Your Own Website</h2>
-	<form action=# style="background-color: black; color: white; padding: 50px;">
+	<h2 style="text-align: center;" >Create Your Own Website</h2>
+	<form id="form" action=# enctype="multipart/form-data" style="background-color: black; color: white; padding: 50px;">
 		<div class="mb-3">
 		  <label for="type" class="form-label">Element Type</label>
-		  <select id="elementType">
+		  <select id="elementType" onchange="imageUpload()">
 			<option value="p">Paragraph</option>
 			<option value="div">Div Element</option>
 			<option value="h1">H1</option>
@@ -29,6 +29,7 @@
 			<option value="ul">Unordered List</option>
 			<option value="li">List Item</option>
 			<option value="span">Span</option>
+			<option value="img">Image</option>
 		</select>
 		</div>
 		<div class="mb-3">
@@ -39,6 +40,10 @@
 		<div class="mb-3 form-check">
 		  <label for="color">Element Color</label>
 		  <input type="color" id="color" value="#008000">
+		</div>
+		<div class="mb-3 form-check" id="imageupload">
+			<label for="image">Element Upload</label>
+			<input type="file" id="image" accept="image/*" onchange="loadimage(event)">
 		</div>
 		<button type="submit" onClick="addItem()" class="btn btn-primary">Add Element</button>
 	</form>

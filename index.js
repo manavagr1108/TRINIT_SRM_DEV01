@@ -1,3 +1,26 @@
+var image= document.getElementById("imageupload").style.display="none";
+var img; 
+
+function imageUpload(){
+    let type = document.
+        getElementById("elementType").value;
+    console.log(type);
+    var image= document.getElementById("imageupload")
+    if(type=="img"){
+        image.style.display="block";
+    }else{
+        image.style.display="none";
+    }
+}
+
+function loadimage(e){
+    img=document.createElement('img');
+    img.src= URL.createObjectURL(e.target.files[0]);
+    img.width=1000;
+    img.width=1000;
+    document.getElementById("userbody").appendChild(img);
+}
+
 function addItem() {
   let elementType = document.getElementById("elementType").value;
 console.log(elementType)
@@ -10,7 +33,5 @@ console.log(elementType)
 
   elementType.appendChild(document.createTextNode(elementValue));
 
-  //   document.getElementById("parent").appendChild(elementType);
-
-  document.getElementById("userbody").appendChild(elementType).style.color = color;
+        document.getElementById("userbody").appendChild(elementType).style.color = color;
 }
