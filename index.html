@@ -1,37 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
 
-<head>
-	<link rel="stylesheet" href="index.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-	
-	<title>
-		Drag and Drop
-	</title>
-</head>
+  <body>
+    <form action="#" style="text-align: center">
+      <label for="type"> Add Element Type </label>
 
-<body>
-	<h2 style="text-align: center;">Create Your Own Website</h2>
-	<form action=# style="background-color: black; color: white; padding: 50px;">
-		<div class="mb-3">
-		  <label for="type" class="form-label">Element Type</label>
-		  <input type="text" class="form-control" id="type" value="h1">
-		</div>
-		<div class="mb-3">
-		  <label for="value" class="form-label">Element Text</label>
-		  <input type="text" class="form-control" id="value" value="Heading">
-		</div>
-		<div class="mb-3 form-check">
-		  <label for="color">Element Color</label>
-		  <input type="color" id="color" value="#008000">
-		</div>
-		<button type="submit" onClick="addItem()" class="btn btn-primary">Add Element</button>
-	</form>
-	<br>
-	<br>
-	<ol id="userbody" style="text-align: center;">
-	</ol>
+      <input type="text" id="type" placeholder="Like: div, h1, li" value="li" />
+      <br /><br />
+
+      <label for="value"> Add Element Value </label>
+
+      <input
+        type="text"
+        id="value"
+        placeholder="Like: Hello GeeksForGeeks"
+        value="CHILD 2"
+      />
+      <br /><br />
+
+      <button type="button" onClick="addItem()">Add</button>
+    </form>
+    <ol id="parent">
+      <li>List Item 1</li>
+    </ol>
+
+    <div id="mydiv">
+      <div id="mydivheader">Click here to move</div>
+      <p>Move</p>
+      <p>this</p>
+      <p>DIV</p>
+    </div>
 </body>
 <script src="index.js"></script>
 </html>
