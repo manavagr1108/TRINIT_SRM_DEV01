@@ -79,6 +79,7 @@ var image = (document.getElementById("imageupload").style.display = "none");
 var card = (document.getElementById("cardupload").style.display = "none");
 var basicTags = (document.getElementById("basicTags"));
 var navbar= document.getElementById("navbarupload").style.display="none";
+var footer=document.getElementById("footerupload").style.display="none";
 
 function loadNavBar(){
   console.log("x");
@@ -109,10 +110,30 @@ function loadNavBar(){
   </div>
 </nav>`
   elementType = document.createElement("div");
-  elementType.style.width="50vw";
+  elementType.style.width="60vw";
   elementType.classList.add("styleType");
   elementType.setAttribute("id", id);
   elementType.insertAdjacentHTML("beforeend", navbar);
+  document.getElementById("userbody").appendChild(elementType);
+  dragElement(document.getElementById(id));
+}
+
+function loadFooter(){
+  var id = "id" + Math.random().toString(16).slice(2);
+  var e1=document.getElementById("footerText").value;
+  const footer = `<footer class="text-center text-white" style="background-color: #f1f1f1;">
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="#">${e1}.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>`
+  elementType = document.createElement("div");
+  elementType.style.width="60vw";
+  elementType.classList.add("styleType");
+  elementType.setAttribute("id", id);
+  elementType.insertAdjacentHTML("beforeend", footer);
   document.getElementById("userbody").appendChild(elementType);
   dragElement(document.getElementById(id));
 }
@@ -143,6 +164,7 @@ function imageUpload() {
   var image = document.getElementById("imageupload");
   var card = document.getElementById("cardupload");
   var navbar = document.getElementById("navbarupload");
+  var footer=document.getElementById("footerupload");
   if (type === "img") {
     image.style.display = "block";
     basicTags.style.display = "none";
@@ -152,14 +174,26 @@ function imageUpload() {
     card.style.display = "block";
     basicTags.style.display = "none";
     image.style.display = "none";
+    footer.style.display="none";
+    navbar.style.display="block";
   }else if(type=="navbar"){
     card.style.display="none";
     basicTags.style.display="none";
+    image.style.display="none";
     navbar.style.display="block";
+    footer.style.display="none";
+  }else if(type=="footer"){
+    card.style.display="none";
+    basicTags.style.display="none";
+    image.style.display="none";
+    navbar.style.display="none";
+    footer.style.display="block";
   } else {
     card.style.display = "none";
     basicTags.style.display = "block";
     image.style.display = "none";
+    navbar.style.display="none";
+    footer.style.display="none";
   }
 }
 
