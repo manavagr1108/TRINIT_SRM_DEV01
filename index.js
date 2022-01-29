@@ -1,16 +1,11 @@
 function addItem() {
-    let type = document.
-        getElementById("type").value;
+  let elementType = document.getElementById("elementType").value;
 
-    let value = document.
-        getElementById("value").value;
+  let elementValue = document.getElementById("value").value;
 
-    type
-        = document.createElement(type);
+  elementType = document.createElement(elementType);
 
-    type.appendChild(
-        document.createTextNode(value));
+  elementType.appendChild(document.createTextNode(elementValue));
 
-    document.getElementById(
-        "parent").appendChild(type);
+  document.getElementById("parent").appendChild(elementType);
 }
