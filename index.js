@@ -140,7 +140,7 @@ function loadFooter(){
 
 function loadCard(e) {
   console.log(e.target);
-  var title=document.getElementById("title").value;
+  var title=document.getElementById("cardtitle").value;
   var content=document.getElementById("content").value;
   var src = URL.createObjectURL(e.target.files[0]);
   var id = "id" + Math.random().toString(16).slice(2);
@@ -219,11 +219,48 @@ document.getElementById("userbody").addEventListener("dblclick", (event) => {
   let deleteElem= document.getElementById(deleteElemId);
   deleteElem.remove();
 });
+
 document.getElementById("userbody").addEventListener("click", (event) => {
+  if(document.getElementById("cssDisplay")){
+    document.getElementById("cssDisplay").remove();
+  }
   var cssObject = getComputedStyle(event.target);
   var fontStyle = cssObject.fontStyle;
   var fontSize = cssObject.fontSize;
   var fontColor = cssObject.color;
   var backgroundColor=cssObject.backgroundColor;
-  
+  var x=cssObject.left;
+  var y=cssObject.right;
+  console.log(cssObject);
+  const displayCss = `<div id="cssDisplay">
+  <br>
+  <table class="table  table-striped">
+  <tr>
+  <th class="table-dark">property</th>
+  <th class="table-dark">Value</th>
+  </tr>
+  <tr>
+  <td class="table-light">font-style</td>
+  <td class="table-light">${fontStyle}</td>
+  </tr>
+  <tr>
+  <td class="table-light">font-size</td>
+  <td class="table-light">${fontSize}</td>
+  </tr>
+  <tr>
+  <td class="table-light"> font-color</td>
+  <td class="table-light"> ${fontColor}</td>
+  </tr>
+  <tr>
+  <td class="table-light">background-color</td>
+  <td class="table-light">${backgroundColor}</td>
+  </tr>
+  <tr>
+  <td class="table-light">position</td>
+  <td class="table-light">${x} ${y}</td>
+  </tr>
+  </table>
+  </div>`
+  document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
+  console.log(displayCss);
 });
