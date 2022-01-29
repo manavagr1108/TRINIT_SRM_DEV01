@@ -1,35 +1,31 @@
 // add items
 function addItem() {
-    let type = document.getElementById("type").value;
+    let elementType = document.getElementById("elementType").value;
+    let elementValue = document.getElementById("value").value;
 
-    let value = document.getElementById("value").value;
-
-    var typeName1 = type;
-    var typeName = type + " header";
+    var typeName1 = elementType;
+    var typeName = elementType + " header";
     console.log(typeName);
-    type = document.createElement(type);
+    elementType = document.createElement(elementType);
 
-    type.classList.add("styleType");
-    type.setAttribute("id",typeName1);
+    elementType.classList.add("styleType");
+    elementType.setAttribute("id",typeName1);
 
     dragTag = document.createElement("div");
     dragTag.classList.add("styleHeader");
     dragTag.setAttribute("id",typeName);
     dragTag.appendChild(document.createTextNode("Click here to move"));
-    type.appendChild(dragTag);
+    elementType.appendChild(dragTag);
 
-    type.appendChild(document.createTextNode(value));
-
-    
-    document.getElementById("parent").appendChild(type);
+    elementType.appendChild(document.createTextNode(elementValue));
+    let color = document.getElementById("color").value;
+    document.getElementById("userbody").appendChild(elementType).style.color = color;
     
     dragElement(document.getElementById(typeName1));
 }
 
-
 //make object dragable
 // Make the DIV element draggable:
-dragElement(document.getElementById("mydiv"));
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -66,4 +62,27 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+var image= document.getElementById("imageupload").style.display="none";
+var img; 
+
+function imageUpload(){
+    let type = document.
+        getElementById("elementType").value;
+    console.log(type);
+    var image= document.getElementById("imageupload")
+    if(type=="img"){
+        image.style.display="block";
+    }else{
+        image.style.display="none";
+    }
+}
+
+function loadimage(e){
+    img=document.createElement('img');
+    img.src= URL.createObjectURL(e.target.files[0]);
+    img.width=1000;
+    img.width=1000;
+    document.getElementById("userbody").appendChild(img);
 }
