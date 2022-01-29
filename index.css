@@ -14,7 +14,7 @@
   background-color: #2196f3;
   color: #fff;
 }
-#styleType {
+.styleType {
   position: absolute;
   z-index: 9;
   background-color: #f1f1f1;
@@ -22,7 +22,7 @@
   text-align: center;
 }
 
-#styleHeader {
+.styleHeader {
   padding: 10px;
   cursor: move;
   z-index: 10;

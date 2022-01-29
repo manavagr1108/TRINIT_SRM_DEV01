@@ -4,18 +4,17 @@ function addItem() {
 
     let value = document.getElementById("value").value;
 
-    typeName1 = type ;
-    typeName = type + " styleHeader";
+    var typeName1 = type;
+    var typeName = type + " header";
     console.log(typeName);
     type = document.createElement(type);
 
-    type.classList.add("mystyle");
-    type.classList.add("header");
-    type.setAttribute("id",typeName);
+    type.classList.add("styleType");
+    type.setAttribute("id",typeName1);
 
     dragTag = document.createElement("div");
-    typeName2 = typeName1 + " header";
-    dragTag.setAttribute("id",typeName2);
+    dragTag.classList.add("styleHeader");
+    dragTag.setAttribute("id",typeName);
     dragTag.appendChild(document.createTextNode("Click here to move"));
     type.appendChild(dragTag);
 
@@ -24,13 +23,13 @@ function addItem() {
     
     document.getElementById("parent").appendChild(type);
     
-    dragElement(document.getElementById(typeName));
+    dragElement(document.getElementById(typeName1));
 }
 
 
 //make object dragable
 // Make the DIV element draggable:
-
+dragElement(document.getElementById("mydiv"));
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
