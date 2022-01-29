@@ -5,6 +5,9 @@ function addItem() {
     let value = document.
         getElementById("value").value;
 
+        let color = document.
+        getElementById("color").value;
+
     type
         = document.createElement(type);
 
@@ -12,5 +15,5 @@ function addItem() {
         document.createTextNode(value));
 
     document.getElementById(
-        "parent").appendChild(type);
+        "parent").appendChild(type).style.color=color
 }
