@@ -1,31 +1,33 @@
 // add items
+
 function addItem() {
   let elementType = document.getElementById("elementType").value;
   let elementValue = document.getElementById("value").value;
   if (elementValue.length > 0) {
     var id = "id" + Math.random().toString(16).slice(2);
     console.log(elementType);
-    if(elementType === "button"){
-        console.log("button");
-        elementType = document.createElement(elementType);
-        elementType.setAttribute("type", "button");
-        elementType.classList.add("btn");
+    if (elementType === "button") {
+      console.log("button");
+      elementType = document.createElement(elementType);
+      elementType.setAttribute("type", "button");
+      elementType.classList.add("btn");
     }
-    else if(elementType == "card"){
-
-    }
-    else{
+    else {
       elementType = document.createElement(elementType);
     }
-    // console.log(first);
     elementType.classList.add("styleType");
     elementType.setAttribute("id", id);
 
     elementType.appendChild(document.createTextNode(elementValue));
     let color = document.getElementById("color").value;
     let BackgroundColor = document.getElementById("Bgcolor").value;
+    let fontsize = document.getElementById("fontsize").value;
+    let fontStyle = document.getElementById("fontStyle").value;
     elementType.style.color = color
     elementType.style.backgroundColor = BackgroundColor
+    // elementType.style.setAttribute('resize','both')
+    elementType.style.setProperty('font-size',fontsize)
+    elementType.style.setProperty('font-Style',fontStyle)
     document.getElementById("userbody").appendChild(elementType);
 
     dragElement(document.getElementById(id));
@@ -34,17 +36,17 @@ function addItem() {
 
 //make object dragable
 // Make the DIV element draggable:
-function dragElement(elmnt) {
+function dragElement(element) {
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
+  if (document.getElementById(element.id + "header")) {
     // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    document.getElementById(element.id + "header").onmousedown = dragMouseDown;
   } else {
     // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
+    element.onmousedown = dragMouseDown;
   }
   function dragMouseDown(e) {
     e = e || window.event;
@@ -65,8 +67,8 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    element.style.top = element.offsetTop - pos2 + "px";
+    element.style.left = element.offsetLeft - pos1 + "px";
   }
   function closeDragElement() {
     // stop moving when mouse button is released:
@@ -175,7 +177,7 @@ function imageUpload() {
     basicTags.style.display = "none";
     image.style.display = "none";
     footer.style.display="none";
-    navbar.style.display="block";
+    navbar.style.display="none";
   }else if(type=="navbar"){
     card.style.display="none";
     basicTags.style.display="none";
@@ -196,14 +198,14 @@ function imageUpload() {
     footer.style.display="none";
   }
 }
-
-
 function loadimage(e) {
+  console.log(e.target);
+  console.log("Manav");
   var id = "id" + Math.random().toString(16).slice(2);
   elementType = document.createElement("img");
   elementType.src = URL.createObjectURL(e.target.files[0]);
-  let height= document.getElementById("height").value;
-  let width= document.getElementById("width").value;
+  let height = document.getElementById("height").value;
+  let width = document.getElementById("width").value;
   elementType.width = width;
   elementType.width = height;
 
@@ -213,6 +215,29 @@ function loadimage(e) {
   document.getElementById("userbody").appendChild(elementType);
   dragElement(document.getElementById(id));
 }
+function loadCard(e) {
+  console.log(e);
+  var id = "id" + Math.random().toString(16).slice(2);
+  // const data = URL.createObjectURL(e.target.files[0]);
+  // console.log(data);
+  console.log("data");
+  const ele = "amav"
+  const card = `<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">${ele}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>`
+  elementType = document.createElement("div");
+  elementType.classList.add("styleType");
+  elementType.setAttribute("id", id);
+  elementType.insertAdjacentHTML("beforeend", card);
+  document.getElementById("userbody").appendChild(elementType);
+  dragElement(document.getElementById(id));
+}
+
 
 document.getElementById("userbody").addEventListener("dblclick", (event) => {
   let deleteElemId= event.srcElement.id;
