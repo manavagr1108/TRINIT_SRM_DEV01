@@ -117,8 +117,8 @@ function loadimage(e) {
   dragElement(document.getElementById(id));
 }
 
-document.addEventListener("dblclick", (event) => {
-  let deleteElemId= event.srcElement.id;
+document.getElementById("userbody").addEventListener("dblclick", (event) => {
+  let deleteElemId= event.id;
   let deleteElem= document.getElementById(deleteElemId);
   deleteElem.remove();
 });
