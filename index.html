@@ -11,9 +11,10 @@
 </head>
 
 <body>
-	<h1 style="text-align: center;" >Create Your Own Website</h1>
+	
 	<div style="display: flex; flex-direction: row-reverse;">
 	<form id="form" action=# enctype="multipart/form-data" style="background-color: black; color: white; padding: 50px;">
+		<h3 class="Title">Create your Own website</h3>
 		<p style="text-align: left; font-size: small;">Double click on elements to remove them.</p>
 		<div class="mb-3">
 		  <label for="type" class="form-label">Element Type</label>
@@ -33,26 +34,41 @@
 			<option value="li">List Item</option>
 			<option value="span">Span</option>
 			<option value="img">Image</option>
+			<option value="card">Cards</option>
+			<option value="textarea">Text Area</option>
 		</select>
 		</div>
-		<div class="mb-3">
+		<div class="mb-3" id="basicTags">
 		  <label for="value" class="form-label">Element Text</label>
 		  <!-- <input type="text" class="form-control" id="value" value="Heading"> -->
 		  <input type="text" id="value" class="form-control" placeholder="Enter the value of the element" />
+		  <label for="color">Background Color</label>
+		  <input type="color" id="Bgcolor" value="#FFFFFF">
+		  <label for="color">Text Color</label>
+		  <input type="color" id="color" value="#000000">
 		</div>
-		<div class="mb-3 form-check">
-		  <label for="color">Element Color</label>
-		  <input type="color" id="color" value="#008000">
-		</div>
+
+
 		<div class="mb-3 form-check" id="imageupload">
-			<div class="mb-3 form-check">
-			<label for="image">Image Height</label>
-			<input type="number" id="height"></div>
-			<div class="mb-3 form-check">
+			<label for="image" >Image Height</label>
+			<input type="number" class="mb-3" id="height"> <br>
 			<label for="image">Image Width</label>
-			<input type="number" id="width"></div>
+			<input type="number" class="mb-3" id="width"> <br>
 			<label for="image">Image Upload</label>
-			<input type="file" id="image" accept="image/*" onchange="loadimage(event)">
+			<div class="input-group mb-3">
+				<input type="file" class="form-control mb-3" id="image" accept="image/*" onchange="loadimage(event)">
+			</div>
+		</div>
+
+		<div class="mb-3 form-check" id="cardupload">
+			<label for="card" >Title</label>
+			<input type="text" class="mb-3" id="height"> <br>
+			<label for="card">Content</label>
+			<input type="number" class="mb-3" id="width"> <br>
+			<label for="card">Image Upload</label>
+			<div class="input-group mb-3">
+				<input type="file" class="form-control mb-3" id="image" accept="image/*" onchange="loadimage(event)">
+			</div>
 		</div>
 		<button type="submit" onClick="addItem()" class="btn btn-primary">Add Element</button>
 	</form>

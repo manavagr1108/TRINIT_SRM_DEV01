@@ -4,15 +4,29 @@ function addItem() {
   let elementValue = document.getElementById("value").value;
   if (elementValue.length > 0) {
     var id = "id" + Math.random().toString(16).slice(2);
-    elementType = document.createElement(elementType);
+    console.log(elementType);
+    if(elementType === "button"){
+        console.log("button");
+        elementType = document.createElement(elementType);
+        elementType.setAttribute("type", "button");
+        elementType.classList.add("btn");
+    }
+    else if(elementType == "card"){
 
+    }
+    else{
+      elementType = document.createElement(elementType);
+    }
+    // console.log(first);
     elementType.classList.add("styleType");
     elementType.setAttribute("id", id);
 
     elementType.appendChild(document.createTextNode(elementValue));
     let color = document.getElementById("color").value;
-    document.getElementById("userbody").appendChild(elementType).style.color =
-      color;
+    let BackgroundColor = document.getElementById("Bgcolor").value;
+    elementType.style.color = color
+    elementType.style.backgroundColor = BackgroundColor
+    document.getElementById("userbody").appendChild(elementType);
 
     dragElement(document.getElementById(id));
   }
@@ -62,18 +76,30 @@ function dragElement(elmnt) {
 }
 
 var image = (document.getElementById("imageupload").style.display = "none");
-var img;
+var card = (document.getElementById("cardupload").style.display = "none");
+var basicTags = (document.getElementById("basicTags"));
 
 function imageUpload() {
   let type = document.getElementById("elementType").value;
-  console.log(type);
+//   console.log(type);
   var image = document.getElementById("imageupload");
-  if (type == "img") {
+  var card = document.getElementById("cardupload");
+  if (type === "img") {
     image.style.display = "block";
+    basicTags.style.display = "none";
+    card.style.display = "none";
+  }
+  else if (type === "card") {
+    card.style.display = "block";
+    basicTags.style.display = "none";
+    image.style.display = "none";
   } else {
+    card.style.display = "none";
+    basicTags.style.display = "block";
     image.style.display = "none";
   }
 }
+
 
 function loadimage(e) {
   var id = "id" + Math.random().toString(16).slice(2);

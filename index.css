@@ -1,8 +1,22 @@
-#form{
+#form {
   min-width: 600px;
   max-width: 600px;
+  height: 100vh;
+  margin: 0px;
+  background-color: black; 
+  color: white;
+  padding: 40px;
 }
-
+.Title {
+  min-width: 500px;
+  max-width: 500px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin: 0px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
 #mydivheader {
   padding: 10px;
   cursor: move;
@@ -13,9 +27,8 @@
 .styleType {
   position: absolute;
   z-index: 9;
-  background-color: #f1f1f1;
-  border: 1px solid #d3d3d3;
   text-align: center;
+  cursor: move;
 }
 
 .styleHeader {
@@ -24,4 +37,9 @@
   z-index: 10;
   background-color: #2196f3;
   color: #fff;
+}
+
+
+.btn{
+    font-size: 25px;
 }
