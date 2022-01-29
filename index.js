@@ -244,3 +244,11 @@ document.getElementById("userbody").addEventListener("dblclick", (event) => {
   let deleteElem= document.getElementById(deleteElemId);
   deleteElem.remove();
 });
+document.getElementById("userbody").addEventListener("click", (event) => {
+  var cssObject = getComputedStyle(event.target);
+  var fontStyle = cssObject.fontStyle;
+  var fontSize = cssObject.fontSize;
+  var fontColor = cssObject.color;
+  var backgroundColor=cssObject.backgroundColor;
+  
+});
