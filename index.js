@@ -78,12 +78,71 @@ function dragElement(elmnt) {
 var image = (document.getElementById("imageupload").style.display = "none");
 var card = (document.getElementById("cardupload").style.display = "none");
 var basicTags = (document.getElementById("basicTags"));
+var navbar= document.getElementById("navbarupload").style.display="none";
+
+function loadNavBar(){
+  console.log("x");
+  var id = "id" + Math.random().toString(16).slice(2);
+  var e1=document.getElementById("navbarelement1").value;
+  var e2=document.getElementById("navbarelement2").value;
+  var e3=document.getElementById("navbarelement3").value;
+  var e4=document.getElementById("navbarelement4").value;
+  const navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">${e1}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">${e2}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">${e3}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">${e4}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>`
+  elementType = document.createElement("div");
+  elementType.style.width="50vw";
+  elementType.classList.add("styleType");
+  elementType.setAttribute("id", id);
+  elementType.insertAdjacentHTML("beforeend", navbar);
+  document.getElementById("userbody").appendChild(elementType);
+  dragElement(document.getElementById(id));
+}
+
+function loadCard(e) {
+  console.log(e.target);
+  var title=document.getElementById("title").value;
+  var content=document.getElementById("content").value;
+  var src = URL.createObjectURL(e.target.files[0]);
+  var id = "id" + Math.random().toString(16).slice(2);
+  const card = `<div class="card" style="width: 18rem;">
+  <img src=${src} class="card-img-top" alt="card image">
+  <div class="card-body">
+    <h5 class="card-title">${title}</h5>
+    <p class="card-text">${content}</p>
+  </div>
+</div>`
+  elementType = document.createElement("div");
+  elementType.classList.add("styleType");
+  elementType.setAttribute("id", id);
+  elementType.insertAdjacentHTML("beforeend", card);
+  document.getElementById("userbody").appendChild(elementType);
+  dragElement(document.getElementById(id));
+}
 
 function imageUpload() {
   let type = document.getElementById("elementType").value;
-//   console.log(type);
   var image = document.getElementById("imageupload");
   var card = document.getElementById("cardupload");
+  var navbar = document.getElementById("navbarupload");
   if (type === "img") {
     image.style.display = "block";
     basicTags.style.display = "none";
@@ -93,6 +152,10 @@ function imageUpload() {
     card.style.display = "block";
     basicTags.style.display = "none";
     image.style.display = "none";
+  }else if(type=="navbar"){
+    card.style.display="none";
+    basicTags.style.display="none";
+    navbar.style.display="block";
   } else {
     card.style.display = "none";
     basicTags.style.display = "block";
@@ -118,7 +181,7 @@ function loadimage(e) {
 }
 
 document.getElementById("userbody").addEventListener("dblclick", (event) => {
-  let deleteElemId= event.id;
+  let deleteElemId= event.srcElement.id;
   let deleteElem= document.getElementById(deleteElemId);
   deleteElem.remove();
 });

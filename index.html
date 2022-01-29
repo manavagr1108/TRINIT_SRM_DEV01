@@ -45,7 +45,6 @@
 		  <input type="color" id="color" value="#000000">
 		</div>
 
-
 		<div class="mb-3 form-check" id="imageupload">
 			<label for="image" >Image Height</label>
 			<input type="number" class="mb-3" id="height"> <br>
@@ -59,13 +58,24 @@
 
 		<div class="mb-3 form-check" id="cardupload">
 			<label for="card" >Title</label>
-			<input type="text" class="mb-3" id="height"> <br>
+			<input type="text" class="mb-3" id="title"> <br>
 			<label for="card">Content</label>
-			<input type="number" class="mb-3" id="width"> <br>
+			<input type="text" class="mb-3" id="content"> <br>
 			<label for="card">Image Upload</label>
 			<div class="input-group mb-3">
-				<input type="file" class="form-control mb-3" id="image" accept="image/*" onchange="loadimage(event)">
+			<input type="file" class="form-control mb-3" id="cardimage" accept="image/*" onchange="loadCard(event)">
 			</div>
+		</div>
+
+		<div class="mb-3 form-check" id="navbarupload">
+			<label for="navbarelementno" >Company Name: </label>
+			<input type="text" class="mb-3" id="navbarelement1"> <br>
+			<label for="navbarelementno" >Page Ref: </label>
+			<input type="text" class="mb-3" id="navbarelement2"> <br>
+			<label for="navbarelementno" >Page Ref: </label>
+			<input type="text" class="mb-3" id="navbarelement3"> <br>
+			<label for="navbarelementno" >Page Ref: </label>
+			<input type="text" class="mb-3" id="navbarelement4" onchange="loadNavBar()"> <br>
 		</div>
 		<button type="submit" onClick="addItem()" class="btn btn-primary">Add Element</button>
 	</form>
