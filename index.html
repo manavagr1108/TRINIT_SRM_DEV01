@@ -1,41 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
 
-<head>
-	<title>
-		Drag and Drop
-	</title>
-</head>
 
-<body>
-	<form action="#" style="text-align:center;">
+  <body>
+    <form action="#" style="text-align: center">
+      <label for="type"> Add Element Type </label>
 
-		<label for="type">
-			Add Element Type
-		</label>
+      <input type="text" id="type" placeholder="Like: div, h1, li" value="li" />
+      <br /><br />
 
-		<input type="text" id="type"
-			placeholder="Like: div, h1, li"
-			value="li" />
-		<br /><br />
+      <label for="value"> Add Element Value </label>
 
-		<label for="value">
-			Add Element Value
-		</label>
+      <input
+        type="text"
+        id="value"
+        placeholder="Like: Hello GeeksForGeeks"
+        value="CHILD 2"
+      />
+      <br /><br />
 
-		<input type="text" id="value"
-			placeholder="Like: Hello GeeksForGeeks"
-			value="CHILD 2" />
-		<br /><br />
+      <button type="button" onClick="addItem()">Add</button>
+    </form>
+    <ol id="parent">
+      <li>List Item 1</li>
+    </ol>
 
-		<button type="button"
-			onClick="addItem()">
-			Add
-		</button>
-	</form>
-	<ol id="parent">
-		<li>List Item 1</li>
-	</ol>
+    <div id="mydiv">
+      <div id="mydivheader">Click here to move</div>
+      <p>Move</p>
+      <p>this</p>
+      <p>DIV</p>
+    </div>
 </body>
-
+<script src="index.js"></script>
 </html>
