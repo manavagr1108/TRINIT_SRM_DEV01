@@ -8,9 +8,9 @@
   padding: 40px;
 }
 #userbody{
-  width: calc(100vh);
+  width: calc(100vw - 600px);
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden visible;
 }
 .Title {
   min-width: 500px;

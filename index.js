@@ -144,8 +144,10 @@ function loadCard(e) {
   var content=document.getElementById("content").value;
   var src = URL.createObjectURL(e.target.files[0]);
   var id = "id" + Math.random().toString(16).slice(2);
-  const card = `<div class="card" style="width: 18rem;">
-  <img src=${src} class="card-img-top" alt="card image">
+  var id1 = "id" + Math.random().toString(16).slice(2);
+  var id2 = "id" + Math.random().toString(16).slice(2);
+  const card = `<div class="card" id=${id1} style="width: 18rem; padding:13px;">
+  <img src=${src} id=${id2} class="card-img-top" alt="card image">
   <div class="card-body">
     <h5 class="card-title">${title}</h5>
     <p class="card-text">${content}</p>
@@ -220,10 +222,47 @@ document.getElementById("userbody").addEventListener("dblclick", (event) => {
   deleteElem.remove();
 });
 document.getElementById("userbody").addEventListener("click", (event) => {
+  if(document.getElementById("cssDisplay")){
+    document.getElementById("cssDisplay").remove();
+  }
   var cssObject = getComputedStyle(event.target);
   var fontStyle = cssObject.fontStyle;
   var fontSize = cssObject.fontSize;
   var fontColor = cssObject.color;
   var backgroundColor=cssObject.backgroundColor;
-  
+  var x=cssObject.left;
+  var y=cssObject.right;
+  console.log(cssObject);
+  const displayCss = `<div id="cssDisplay">
+  <br>
+  <table class="table  table-striped">
+  <tr>
+  <th class="table-dark">property</th>
+  <th class="table-dark">Value</th>
+  </tr>
+  <tr>
+  <td class="table-light">font-style</td>
+  <td class="table-light">${fontStyle}</td>
+  </tr>
+  <tr>
+  <td class="table-light">font-size</td>
+  <td class="table-light">${fontSize}</td>
+  </tr>
+  <tr>
+  <td class="table-light"> font-color</td>
+  <td class="table-light"> ${fontColor}</td>
+  </tr>
+  <tr>
+  <td class="table-light">background-color</td>
+  <td class="table-light">${backgroundColor}</td>
+  </tr>
+  <tr>
+  <td class="table-light">position</td>
+  <td class="table-light">${x} ${y}</td>
+  </tr>
+  </table>
+  </div>`
+  document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
+  console.log(displayCss);
 });
+
