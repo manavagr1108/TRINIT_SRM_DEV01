@@ -48,7 +48,6 @@ function dragElement(element) {
   }
   function dragMouseDown(e) {
     e = e || window.event;
-    e.preventDefault();
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -58,7 +57,6 @@ function dragElement(element) {
   }
   function elementDrag(e) {
     e = e || window.event;
-    e.preventDefault();
     // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
@@ -88,27 +86,23 @@ function loadNavBar(){
   var e2=document.getElementById("navbarelement2").value;
   var e3=document.getElementById("navbarelement3").value;
   var e4=document.getElementById("navbarelement4").value;
-  const navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">${e1}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">${e2}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">${e3}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">${e4}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>`
+  const navbar = `<ul class="nav nav-pills ">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">${e1}</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">${e4}</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">${e2}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">${e3}</a>
+  </li>
+</ul>`
   elementType = document.createElement("div");
   elementType.style.width="60vw";
   elementType.classList.add("styleType");
@@ -144,10 +138,10 @@ function loadCard(e) {
   var content=document.getElementById("content").value;
   var src = URL.createObjectURL(e.target.files[0]);
   var id = "id" + Math.random().toString(16).slice(2);
-  const card = `<div class="card" style="width: 18rem;">
+  const card = `<div class="card" style="width: 18rem; padding:15px;">
   <img src=${src} class="card-img-top" alt="card image">
   <div class="card-body">
-    <h5 class="card-title">${title}</h5>
+    <h5 class="card-title" >${title}</h5>
     <p class="card-text">${content}</p>
   </div>
 </div>`
@@ -230,8 +224,8 @@ document.getElementById("userbody").addEventListener("click", (event) => {
   var fontColor = cssObject.color;
   var backgroundColor=cssObject.backgroundColor;
   var x=cssObject.left;
-  var y=cssObject.right;
-  console.log(cssObject);
+  var y=cssObject.top;
+  console.log(event.target);
   const displayCss = `<div id="cssDisplay">
   <br>
   <table class="table  table-striped">
@@ -262,5 +256,13 @@ document.getElementById("userbody").addEventListener("click", (event) => {
   </table>
   </div>`
   document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
-  console.log(displayCss);
 });
+document.getElementById("userbody").addEventListener("mouseover", (event) => {
+  if(event.target.id == "userbody")
+  event.target.style.setProperty("border" ,  "0px solid cyan")
+  else
+  event.target.style.setProperty("border" ,  "2px solid cyan")
+})
+document.getElementById("userbody").addEventListener("mouseout", (event) => {
+  event.target.style.setProperty("border" ,  "0px solid blue")
+})
