@@ -221,16 +221,18 @@ document.getElementById("userbody").addEventListener("click", (event) => {
   if(document.getElementById("cssDisplay")){
     document.getElementById("cssDisplay").remove();
   }
+  console.log(event);
   var cssObject = getComputedStyle(event.target);
-  var fontFamily= cssObject.fontFamily;
-  var fontStyle = cssObject.fontStyle;
-  var fontSize = cssObject.fontSize;
-  var fontColor = cssObject.color;
-  var fontWeight= cssObject.fontWeight;
-  var backgroundColor=cssObject.backgroundColor;
-  var x=cssObject.left;
-  var y=cssObject.top;
-  console.log(cssObject);
+  var fontFamily= event.target.style.fontFamily || cssObject.fontFamily;
+  var fontStyle = event.target.style.fontStyle || cssObject.fontStyle;
+  var fontSize = event.target.style.fontSize || cssObject.fontSize;
+  var fontColor = event.target.style.fontColor || cssObject.color;
+  var fontWeight= event.target.style.fontWeight || cssObject.fontWeight;
+  var backgroundColor=event.target.style.backgroundColor || cssObject.backgroundColor;
+  var top=event.target.style.top || cssObject.top;
+  var bottom=event.target.style.bottom || cssObject.bottom;
+  var left=event.target.style.left || cssObject.left;
+  var right=event.target.style.right || cssObject.right;
 
   const displayCss = `<div id="cssDisplay" style="color:black; background-color: #add8e6; border-radius: 2rem; padding-left:1rem; padding-bottom:1rem">
   <br>
@@ -242,8 +244,10 @@ document.getElementById("userbody").addEventListener("click", (event) => {
     font-weight: ${fontWeight}; <br>
     color: ${fontColor};<br>
     backgound-color: ${backgroundColor};<br>
-    x: ${x};<br>
-    y: ${y};<br>
+    top: ${top};<br>
+    bottom: ${bottom};<br>
+    left: ${left};<br>
+    right: ${right};<br>
   }</p>
   </div>`
   document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
