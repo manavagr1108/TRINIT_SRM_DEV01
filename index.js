@@ -1,10 +1,10 @@
+//adding basic elements to the userbody
 function addItem() {
   let elementType = document.getElementById("elementType").value;
   let elementValue = document.getElementById("value").value;
-  if (elementValue.length > 0) {
-    var id = "id" + Math.random().toString(16).slice(2);
-    console.log(elementType);
-    if (elementType === "button") {
+  if (elementValue.length > 0) { // checking if the input is value is given or not
+    var id = "id" + Math.random().toString(16).slice(2);  // giving random id to the div so that the elements can be moved
+    if (elementType === "button") {   // special case for button as we are adding bootstrap class to the button
       console.log("button");
       elementType = document.createElement(elementType);
       elementType.setAttribute("type", "button");
@@ -13,6 +13,8 @@ function addItem() {
     else {
       elementType = document.createElement(elementType);
     }
+
+    //adding various styles to the normal input fields
     elementType.classList.add("styleType");
     elementType.setAttribute("id", id);
 
@@ -29,9 +31,11 @@ function addItem() {
     elementType.style.setProperty('font-style',fontStyle)
     elementType.style.setProperty('font-weight',fontWeight)
     elementType.style.setProperty('font-family',fontFamily)
+
+    // appending the created div to the parent div of id="userBody"
     document.getElementById("userbody").appendChild(elementType);
 
-    dragElement(document.getElementById(id));
+    dragElement(document.getElementById(id)); // enableing draggable feature for elements
   }
 }
 
@@ -76,12 +80,16 @@ function dragElement(element) {
   }
 }
 
+
+// getting the input form Id and setting their display to none except basicTags
 var image = (document.getElementById("imageupload").style.display = "none");
 var card = (document.getElementById("cardupload").style.display = "none");
 var basicTags = (document.getElementById("basicTags"));
 var navbar= document.getElementById("navbarupload").style.display="none";
 var footer=document.getElementById("footerupload").style.display="none";
 
+
+//function to create NavBar
 function loadNavBar(){
   console.log("x");
   var id = "id" + Math.random().toString(16).slice(2);
@@ -115,6 +123,7 @@ function loadNavBar(){
   dragElement(document.getElementById(id));
 }
 
+//funtion to create Footer
 function loadFooter(){
   var id = "id" + Math.random().toString(16).slice(2);
   var e1=document.getElementById("footerText").value;
@@ -135,6 +144,8 @@ function loadFooter(){
   dragElement(document.getElementById(id));
 }
 
+
+//funtion to create cards
 function loadCard(e) {
   console.log(e.target);
   var title=document.getElementById("cardtitle").value;
@@ -156,6 +167,7 @@ function loadCard(e) {
   dragElement(document.getElementById(id));
 }
 
+//funtion to enable various input form divs
 function imageUpload() {
   let type = document.getElementById("elementType").value;
   var image = document.getElementById("imageupload");
@@ -193,6 +205,8 @@ function imageUpload() {
     footer.style.display="none";
   }
 }
+
+//funtion to insert image
 function loadimage(e) {
   console.log(e.target);
   console.log("Manav");
@@ -211,12 +225,15 @@ function loadimage(e) {
   dragElement(document.getElementById(id));
 }
 
+//deleting elements on double click
 document.getElementById("userbody").addEventListener("dblclick", (event) => {
   let deleteElemId= event.srcElement.id;
   let deleteElem= document.getElementById(deleteElemId);
   deleteElem.remove();
 });
 
+
+//to display the css property of a div
 document.getElementById("userbody").addEventListener("click", (event) => {
   if(document.getElementById("cssDisplay")){
     document.getElementById("cssDisplay").remove();
@@ -252,12 +269,17 @@ document.getElementById("userbody").addEventListener("click", (event) => {
   </div>`
   document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
 });
+
+
+// to highlight the div when mouse is on the div
 document.getElementById("userbody").addEventListener("mouseover", (event) => {
   if(event.target.id == "userbody")
   event.target.style.setProperty("border" ,  "0px solid cyan")
   else
   event.target.style.setProperty("border" ,  "2px solid cyan")
 })
+
+// to remove the highlight of the selected div
 document.getElementById("userbody").addEventListener("mouseout", (event) => {
   event.target.style.setProperty("border" ,  "0px solid blue")
 })
