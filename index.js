@@ -19,16 +19,20 @@ function addItem() {
     elementType.appendChild(document.createTextNode(elementValue));
     let color = document.getElementById("color").value;
     let BackgroundColor = document.getElementById("Bgcolor").value;
-    let fontsize = document.getElementById("fontsize").value;
+    let fontsize = (document.getElementById("fontsize").value).toString() + "px";
     let fontStyle = document.getElementById("fontStyle").value;
     let fontWeight= document.getElementById("fontWeight").value
     let fontFamily= document.getElementById("fontFamily").value
+    let width=document.getElementById("elemwidth").value.toString()+"px";
+    let textAlign=document.getElementById("textAlign").value;
     elementType.style.color = color
     elementType.style.backgroundColor = BackgroundColor
     elementType.style.setProperty('font-size',fontsize)
     elementType.style.setProperty('font-style',fontStyle)
     elementType.style.setProperty('font-weight',fontWeight)
     elementType.style.setProperty('font-family',fontFamily)
+    elementType.style.setProperty('width',width)
+    elementType.style.setProperty('text-align',textAlign)
     document.getElementById("userbody").appendChild(elementType);
 
     dragElement(document.getElementById(id));
