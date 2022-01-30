@@ -11,103 +11,110 @@
 </head>
 
 <body>
-
-	<div style="display: flex; flex-direction: row-reverse;">
-		<form id="form" action=# enctype="multipart/form-data">
-			<h2 id="title">Create your Own website</h2>
-			<p id="description" class="description"><i>Double click on elements to remove them.</i></p>
-			<div class="input-headings">
-				<label for="type" id="role"><b> Element Type </b></label>
-				<select id="elementType" onchange="imageUpload()" class="form-inputs">
-					<option value="p">Paragraph</option>
-					<option value="h1">H1</option>
-					<option value="h2">H2</option>
-					<option value="h3">H3</option>
-					<option value="h4">H4</option>
-					<option value="h5">H5</option>
-					<option value="h6">H6</option>
-					<option value="button">Button</option>
-					<option value="ol">Ordered List</option>
-					<option value="ul">Unordered List</option>
-					<option value="span">Span</option>
-					<option value="img">Image</option>
-					<option value="card">Cards</option>
-					<option value="textarea">Text Area</option>
-					<option value="navbar">Nav Bar</option>
-					<option value="footer">Footer</option>
-				</select>
-				<br>
-				<div id="basicTags">
-					<label for="value" id="name-label"> Element Text</label>
-					<input id="value" type="text" placeholder="Enter the value of the element" required
-						class="form-inputs"> </input>
-					<br>
-					<label for="fontsize">Font Size</label>
-					<input id="fontsize" type="fontsize" value="24px" required class="form-inputs"></input>
-					<br>
-					<label for="fontstyle">Font Style</label>
-					<select type="fontStyle" id="fontStyle" class="form-inputs">
-						<option value="normal">Normal</option>
-						<option value="italic">Italic</option>
-						<option value="bold">Bold</option>
-						<option value="oblique">Oblique</option>
-					</select><br>
-					<label for="color"><b>Background Color</b></label>
-					<input id="Bgcolor" type="color" value="#FFFFFF" class="form-inputs">
-					<br>
-					<label for="color"><b>Text Color</b></label>
-					<input id="color" type="color" value="#000000" class="form-inputs"><br>
-				</div>
-				<div id="imageupload">
-					<label for="image"> Image Height</label>
-					<input id="height" type="number" required class="form-inputs"> </input><br>
-					<label for="image"> Image Width</label>
-					<input id="width" type="number" required class="form-inputs"> </input><br>
-					<label for="image"> Image Upload</label>
-					<input id="image" type="file" accept="image/*" required class="form-inputs"
-						onchange="loadimage(event)"> </input>
-					<br>
-				</div>
-				<div id="cardupload">
-					<label for="card">Title</label>
-					<input id="cardtitle" type="text" required class="form-inputs"> </input><br>
-					<label for="card">Content</label>
-					<input id="content" type="text" required class="form-inputs"> </input><br>
-					<label for="color"><b>Text Color</b></label>
-					<input id="color" type="color" value="#000000" class="form-inputs"><br>
-					<label for="card"> Image Upload</label>
-					<input id="cardimage" type="file" accept="image/*" required class="form-inputs"
-						onchange="loadCard(event)"> </input>
-					<br>
-				</div>
-				<div id="navbarupload">
-					<label for="navbarelementno">Company Name</label>
-					<input id="navbarelement1" type="text" required class="form-inputs"> </input><br>
-					<label for="navbarelementno">Page Ref:</label>
-					<input id="navbarelement2" type="text" required class="form-inputs"> </input><br>
-					<label for="navbarelementno">Page Ref:</label>
-					<input id="navbarelement3" type="text" required class="form-inputs"> </input><br>
-					<label for="navbarelementno">Page Ref:</label>
-					<input id="navbarelement4" type="text" onchange="loadNavBar()" required class="form-inputs">
-					</input><br>
-					<br>
-				</div>
-				<div id="footerupload">
-					<label for="footerText">Company Name</label>
-					<input id="footerText" type="text" onchange="loadFooter()" required class="form-inputs">
-					</input><br>
-				</div>
-				<input id="submit" type="submit" value="Add Element" class="submit-button" onClick="addItem()">
-			</div>
-		</form>
+	
+<div style="display: flex; flex-direction: row-reverse;">
+	<form id="form" action=# enctype="multipart/form-data"> 
+		<h2 id="title">Create your Own website</h2> 
+		  <p id="description" class="description"><i>Double click on elements to remove them.</i></p>
+		<div class="input-headings">
+		  <label for="type" id="role"><b> Element Type </b></label>
+	  <select id="elementType" onchange="imageUpload()" class="form-inputs">
+		<option value="p">Paragraph</option>
+				  <option value="h1">H1</option>
+				  <option value="h2">H2</option>
+				  <option value="h3">H3</option>
+				  <option value="h4">H4</option>
+				  <option value="h5">H5</option>
+				  <option value="h6">H6</option>
+				  <option value="button">Button</option>
+				  <option value="ol">Ordered List</option>
+				  <option value="ul">Unordered List</option>
+				  <option value="span">Span</option>
+				  <option value="img">Image</option>
+				  <option value="card">Cards</option>
+				  <option value="textarea">Text Area</option>
+				  <option value="navbar">Nav Bar</option>
+				  <option value="footer">Footer</option>
+		</select> 
+	  <br>
+	  <div id="basicTags">
+		<label for="value" id="name-label"> Element Text</label>
+		<input id="value" type="text" placeholder="Enter the value of the element" class="form-inputs"> </input>
+	  <br>
+	  <label for="fontsize">Font Size</label>
+		  <input id="fontsize" type="fontsize" class="form-inputs"></input>
+	  <br>
+	  <label for="fontfamily">Font Family</label>
+	  <select type="fontFamily" id="fontFamily" class="form-inputs">
+					<option value="serif">Serif</option>
+					<option value="sans-serif">Sans-Serif</option>
+					<option value="monospace">Monospace</option>
+					<option value="curvy">Curvy</option>
+					<option value="fantasy">Fantasy</option>
+	  </select><br>    
+	  <label for="fontstyle">Font Style</label>
+	  <select type="fontStyle" id="fontStyle" class="form-inputs">
+					<option value="normal">Normal</option>
+					<option value="italic">Italic</option>
+					<option value="oblique">Oblique</option>
+	  </select><br>    
+	  <label for="fontweight">Font Weight</label>
+	  <select type="fontWeight" id="fontWeight" class="form-inputs">
+					<option value="normal">Normal</option>
+					<option value="bold">Bold</option>
+					<option value="lighter">Lighter</option>
+					<option value="bolder">Bolder</option>
+	  </select><br>                         
+	  <label for="color"><b>Background Color</b></label>
+	  <input id="Bgcolor" type="color" value="#FFFFFF" class="form-inputs">
+	  <br>
+	  <label for="color"><b>Text Color</b></label>
+	  <input id="color" type="color" value="#000000" class="form-inputs"><br>
+	</div>
+		  <div id="imageupload">
+		<label for="image"> Image Height</label>
+		<input id="height" type="number" class="form-inputs"> </input><br>
+		  <label for="image"> Image Width</label>
+		<input id="width" type="number" class="form-inputs"> </input><br>
+		<label for="image"> Image Upload</label>
+		<input id="image" type="file" accept="image/*" class="form-inputs" onchange="loadimage(event)"> </input>
+	    <br>
+	  </div>
+	   <div id="cardupload">
+		<label for="card">Title</label>
+		<input id="cardtitle" type="text" class="form-inputs"> </input><br>
+		  <label for="card">Content</label>
+		<input id="content" type="text" class="form-inputs"> </input><br>
+		<label for="card"> Image Upload</label>
+		<input id="cardimage" type="file" accept="image/*" class="form-inputs" onchange="loadCard(event)"> </input>
+	  <br>
+	  </div>
+	  <div id="navbarupload">
+		<label for="navbarelementno">Company Name</label>
+		<input id="navbarelement1" type="text" class="form-inputs"> </input><br>
+		  <label for="navbarelementno">Page Ref:</label>
+		<input id="navbarelement2" type="text" class="form-inputs"> </input><br>
+	  <label for="navbarelementno">Page Ref:</label>
+		<input id="navbarelement3" type="text" class="form-inputs"> </input><br>
+	  <label for="navbarelementno">Page Ref:</label>
+		<input id="navbarelement4" type="text" onchange="loadNavBar()" class="form-inputs"> </input><br>
+	  <br>
+	  </div>
+	  <div id="footerupload">
+		<label for="footerText">Company Name</label>
+		<input id="footerText" type="text" onchange="loadFooter()" class="form-inputs"> </input><br>
+	  </div>
+	  <input id="submit" type="submit" value="Add Element" class="submit-button" onClick="addItem()">
+		  </div>
+	  </form>
 		<br>
 		<br>
 		<ol id="userbody" style="text-align: center;">
 		</ol>
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
-
 </html>

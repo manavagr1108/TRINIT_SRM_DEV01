@@ -21,11 +21,14 @@ function addItem() {
     let BackgroundColor = document.getElementById("Bgcolor").value;
     let fontsize = document.getElementById("fontsize").value;
     let fontStyle = document.getElementById("fontStyle").value;
+    let fontWeight= document.getElementById("fontWeight").value
+    let fontFamily= document.getElementById("fontFamily").value
     elementType.style.color = color
     elementType.style.backgroundColor = BackgroundColor
-    // elementType.style.setAttribute('resize','both')
     elementType.style.setProperty('font-size',fontsize)
-    elementType.style.setProperty('font-Style',fontStyle)
+    elementType.style.setProperty('font-style',fontStyle)
+    elementType.style.setProperty('font-weight',fontWeight)
+    elementType.style.setProperty('font-family',fontFamily)
     document.getElementById("userbody").appendChild(elementType);
 
     dragElement(document.getElementById(id));
@@ -219,41 +222,29 @@ document.getElementById("userbody").addEventListener("click", (event) => {
     document.getElementById("cssDisplay").remove();
   }
   var cssObject = getComputedStyle(event.target);
+  var fontFamily= cssObject.fontFamily;
   var fontStyle = cssObject.fontStyle;
   var fontSize = cssObject.fontSize;
   var fontColor = cssObject.color;
+  var fontWeight= cssObject.fontWeight;
   var backgroundColor=cssObject.backgroundColor;
   var x=cssObject.left;
   var y=cssObject.top;
-  console.log(event.target);
-  const displayCss = `<div id="cssDisplay">
+  console.log(cssObject);
+
+  const displayCss = `<div id="cssDisplay" style="color:black; background-color: #add8e6; border-radius: 2rem; padding-left:1rem; padding-bottom:1rem">
   <br>
-  <table class="table  table-striped">
-  <tr>
-  <th class="table-dark">property</th>
-  <th class="table-dark">Value</th>
-  </tr>
-  <tr>
-  <td class="table-light">font-style</td>
-  <td class="table-light">${fontStyle}</td>
-  </tr>
-  <tr>
-  <td class="table-light">font-size</td>
-  <td class="table-light">${fontSize}</td>
-  </tr>
-  <tr>
-  <td class="table-light"> font-color</td>
-  <td class="table-light"> ${fontColor}</td>
-  </tr>
-  <tr>
-  <td class="table-light">background-color</td>
-  <td class="table-light">${backgroundColor}</td>
-  </tr>
-  <tr>
-  <td class="table-light">position</td>
-  <td class="table-light">${x} ${y}</td>
-  </tr>
-  </table>
+  <h5><b>Element CSS:</b></h5>
+  <p>{<br>
+    font-family: ${fontFamily}; <br>
+    font-style: ${fontStyle};<br>
+    font-size: ${fontSize};<br>
+    font-weight: ${fontWeight}; <br>
+    color: ${fontColor};<br>
+    backgound-color: ${backgroundColor};<br>
+    x: ${x};<br>
+    y: ${y};<br>
+  }</p>
   </div>`
   document.getElementById("form").insertAdjacentHTML("beforeend", displayCss);
 });
