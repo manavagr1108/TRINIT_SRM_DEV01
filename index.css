@@ -1,17 +1,77 @@
-#form {
-  min-width: 600px;
-  max-width: 600px;
-  height: 100vh;
-  margin: 0px;
-  background-color: black; 
-  color: white;
-  padding: 40px;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+
+body{
+  font-family: 'Lato';
+  line-height: 1.4;
+  background-color: #FFFFFF;
+  color: rgb(0, 0, 0);
+  margin: auto;
 }
+Form{
+  color: white;
+  background: rgb(12, 60, 66);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  min-width: 500px;
+  max-width: 500px;
+  margin-right:1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-height:95vh;
+  max-height: fit-content;
+}
+
+.submit-button{
+  width: 100%;
+  padding: 0.75rem;
+  background: rgb(26, 153, 170);
+  color: white;
+  border-radius: 210px;
+  cursor: pointer;
+}
+.submit-button:hover{
+  background: rgb(14, 98, 81)
+}
+.input-headings{
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-inputs{
+  display: block;
+  width: 90%;
+  height: 2rem;
+  padding: 0.25rem 0.75rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+    
+}
+.textarea{
+  border: 1px solid #ced4da;
+  padding: .50rem .50rem;
+  font-family: 'Lato';
+  font-weight: 900;
+}
+
+.description{
+  font-weight: bolder;
+  color: #ffffff;
+  margin-left: 70px 
+}
+#title{
+  font-weight: 900;
+  text-align: center;
+  color: white;
+}
+
 #userbody{
   width: calc(100vw - 600px);
   height: 100vh;
   overflow: hidden visible;
 }
+
 .Title {
   min-width: 500px;
   max-width: 500px;
@@ -45,7 +105,25 @@
 }
 
 
-.btn{
-    font-size: 25px;
+
+.btn {
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px #999;
 }
 
+.btn:hover {background-color: #3e8e41}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+.card-img-top:hover{
+  width: 17rem;
+}
+
+.nav{
+  background-color: rgb(241, 241, 241);
+}

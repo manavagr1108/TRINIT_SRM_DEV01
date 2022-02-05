@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="./index1.css" />
+    <script src="./index1.js" defer></script>
+    <title>Website Builder</title>
+</head>
+
+<body>
+    <div class="body">
+        <div class="titleContainer">
+            <h4 class="title">
+                Build your website here
+            </h4>
+        </div>
+        <div class="workspace">
+            <div class="compenentsTab workspaceDiv">
+                <h6 class="TabsTitle">Select Components</h6>
+                <div class="BasicContainer">
+                    <label for="basicComponents" class="dropDownLable">Choose a Basic Component:</label>
+                    <select name="basicComponents" class="basicComponents" onclick="selectStyle()" id="basicComponents">
+                        <option value="h1">h1</option>
+                        <option value="h2">h2</option>
+                        <option value="h3">h3</option>
+                        <option value="h4">h4</option>
+                        <option value="h5">h5</option>
+                        <option value="h6">h6</option>
+                        <option value="span">span</option>
+                        <option value="div">div</option>
+                        <option value="p">p</option>
+                    </select>
+                </div>
+                <div class="AdvanceContainer">
+                    <label for="AdvanceComponents" class="dropDownLable"> Choose a Advance Components:</label>
+                    <select name="advanceComponents" class="basicComponents" onclick="AdvSComponenetImput()"
+                        id="advanceComponents">
+                        <option value="navBar">NavBar</option>
+                        <option value="Footer">Footer</option>
+                        <option value="Header">Header</option>
+                        <option value="Form">Form</option>
+                        <option value="Image">Image</option>
+                        <option value="Cards">Cards</option>
+                    </select>
+                </div>
+                <div class="styleInputContainer basicStyleTab">
+                    <div class="inputDiv">
+                        <input type="color" id="color" class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">color</label>
+                    </div>
+                    <div class="inputDiv">
+                        <input type="color" id="background-color" value="#FFFFFF" class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">BackGround color</label>
+                    </div>
+                    <div class="inputDiv">
+                        <input type="text" id="content" class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">Enter Text Content</label>
+                    </div>
+                    <div class="inputDiv">
+                        <button type="submit" id="submit" onclick="applyStyles()" class="btn">Submit</button>
+                    </div>
+                </div>
+                <div class="styleInputContainer img">
+                    <div class="inputDiv">
+                        <input type="number" id="widthImg" class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">width</label>
+                    </div>
+                    <div class="inputDiv">
+                        <input type="number" id="heightImg" class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">height</label>
+                    </div>
+                    <div class="inputDiv imgDiv">
+                        <input type="file" accept="image/*" onchange="insertImage(event)" id="img"
+                            class="input basicInputs"></input>
+                        <label class="inputLable" for="styles">Image</label>
+                    </div>
+                </div>
+            </div>
+            <div class="website workspaceDiv">
+                <h6 class="TabsTitle">Drag and Drop website</h6>
+                <div class="addElements" id="addElements">
+                </div>
+            </div>
+            <div class="styles workspaceDiv">
+                <h6 class="TabsTitle">Change styles</h6>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- <div class="inputDiv">
+    <input type="number" id="width" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">width</label>
+</div>
+<div class="inputDiv">
+    <input type="number" id="height" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">height</label>
+</div>
+<div class="inputDiv">
+    <input type="number" id="font-size" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">font-size</label>
+</div>
+<div class="inputDiv">
+    <input type="text" id="font-face" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">font-face</label>
+</div>
+<div class="inputDiv">
+    <input type="text" id="font-style" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">font-style</label>
+</div>
+<div class="inputDiv">
+    <input type="number" id="font-weight" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">font-weight</label>
+</div>
+<div class="inputDiv">
+    <input type="number" id="padding" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">padding</label>
+</div>
+<div class="inputDiv">
+    <input type="number" id="margin" class="input basicInputs"></input>
+    <label class="inputLable" for="styles">margin</label>
+</div> -->
